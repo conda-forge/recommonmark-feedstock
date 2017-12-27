@@ -33,7 +33,7 @@ about:
   home: https://github.com/rtfd/recommonmark
   license: MIT
   license_family: MIT
-  license_file: license.md
+  # license_file: license.md # Their license.md is not distributed in their pypi package.
   summary: 'A docutils-compatibility bridge to CommonMark.'
 
   description: |
