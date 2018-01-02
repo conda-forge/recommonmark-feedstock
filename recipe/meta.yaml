@@ -13,7 +13,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
@@ -22,7 +22,7 @@ requirements:
     - setuptools
   run:
     - python
-    - commonmark
+    - commonmark <=0.5.4
     - docutils
 
 test:
@@ -33,7 +33,7 @@ about:
   home: https://github.com/rtfd/recommonmark
   license: MIT
   license_family: MIT
-#  license_file: LICENSE.md
+  # license_file: license.md # Their license.md is not distributed in their pypi package.
   summary: 'A docutils-compatibility bridge to CommonMark.'
 
   description: |
