@@ -1,40 +1,50 @@
-{% set name = "recommonmark" %}
 {% set version = "0.4.0" %}
-{% set sha256 = "6e29c723abcf5533842376d87c4589e62923ecb6002a8e059eb608345ddaff9d" %}
 
 package:
-  name: {{ name|lower }}
+  name: recommonmark
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/r/recommonmark/recommonmark-{{ version }}.tar.gz
+  sha256: 6e29c723abcf5533842376d87c4589e62923ecb6002a8e059eb608345ddaff9d
 
 build:
+  number: 2
   noarch: python
-  number: 1
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  entry_points:
+    - cm2html = recommonmark.scripts:cm2html
+    - cm2latex = recommonmark.scripts:cm2latex
+    - cm2man = recommonmark.scripts:cm2man
+    - cm2pseudoxml = recommonmark.scripts:cm2pseudoxml
+    - cm2xetex = recommonmark.scripts:cm2xetex
+    - cm2xml = recommonmark.scripts:cm2xml
 
 requirements:
-  build:
+  host:
     - python
     - setuptools
   run:
     - python
     - commonmark <=0.5.4
-    - docutils
+    - docutils >=0.11
 
 test:
   imports:
     - recommonmark
-
+  commands:
+    - cm2html -h
+    - cm2latex -h
+    - cm2man -h
+    - cm2pseudoxml -h
+    - cm2xetex = -h
+    - cm2xml = -h
 about:
   home: https://github.com/rtfd/recommonmark
   license: MIT
   license_family: MIT
-  # license_file: license.md # Their license.md is not distributed in their pypi package.
-  summary: 'A docutils-compatibility bridge to CommonMark.'
+  license_file: license.md
+  summary: 'A docutils-compatibility bridge to CommonMark'
 
   description: |
     A docutils-compatibility bridge to CommonMark.
@@ -45,3 +55,4 @@ about:
 extra:
   recipe-maintainers:
     - CJ-Wright
+    - ocefpaf
