@@ -7,7 +7,7 @@ Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
-Summary: A docutils-compatibility bridge to CommonMark.
+Summary: A docutils-compatibility bridge to CommonMark
 
 A docutils-compatibility bridge to CommonMark.
 This allows you to write CommonMark inside of Docutils & Sphinx projects.
