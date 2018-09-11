@@ -23,7 +23,7 @@ build:
 requirements:
   host:
     - python
-    - setuptools
+    - pip
   run:
     - python
     - commonmark <=0.5.4
