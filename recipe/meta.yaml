@@ -1,4 +1,4 @@
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: recommonmark
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/r/recommonmark/recommonmark-{{ version }}.tar.gz
-  sha256: 6e29c723abcf5533842376d87c4589e62923ecb6002a8e059eb608345ddaff9d
+  sha256: a520b8d25071a51ae23a27cf6252f2fe387f51bdc913390d83b2b50617f5bb48
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
