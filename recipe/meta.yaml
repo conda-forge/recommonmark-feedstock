@@ -1,4 +1,4 @@
-{% set version = "0.6.0" %}
+{% set version = "0.7.1" %}
 
 package:
   name: recommonmark
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/r/recommonmark/recommonmark-{{ version }}.tar.gz
-  sha256: 29cd4faeb6c5268c633634f2d69aef9431e0f4d347f90659fd0aab20e541efeb
+  sha256: bdb4db649f2222dcd8d2d844f0006b958d627f732415d399791ee436a3686d67
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - cm2html = recommonmark.scripts:cm2html
     - cm2latex = recommonmark.scripts:cm2latex
@@ -45,7 +45,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: license.md
-  summary: 'A docutils-compatibility bridge to CommonMark'
+  summary: A docutils-compatibility bridge to CommonMark
 
   description: |
     A docutils-compatibility bridge to CommonMark.
